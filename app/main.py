@@ -93,20 +93,19 @@ def index():
 def start():
     data = bottle.request.json
 
-
-  print data
-  print '=================='
-  # TODO: Do things with data
-  #ID = data[id]
+    print data
+    print '=================='
+    # TODO: Do things with data
+    #ID = data[id]
 
     return {
-    "color": "#ff59eb",
-    "secondary_color": "#00D5FB",
-    "head_url": "http://www.blogcdn.com/www.aoltv.com/media/2007/04/fdrisksyss.gif",
-    "name": "FriskyDingo",
-    "taunt": "Choke yourself!",
-    "head_type": "tongue",
-    "tail_type": "freckled"
+        "color": "#ff59eb",
+        "secondary_color": "#00D5FB",
+        "head_url": "http://www.blogcdn.com/www.aoltv.com/media/2007/04/fdrisksyss.gif",
+        "name": "FriskyDingo",
+        "taunt": "Choke yourself!",
+        "head_type": "tongue",
+        "tail_type": "freckled"
     }
 # DATA OBJECT
 # {
