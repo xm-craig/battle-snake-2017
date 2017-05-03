@@ -11,6 +11,8 @@ WALL = 2
 FOOD = 3
 GOLD = 4
 SAFTEY = 5
+snake_name = 'FriskyDingo'
+
 def goals(data):
     result = data['food']
 #    if data['mode'] == 'advanced':
@@ -49,10 +51,12 @@ def closest(items, start):
     return closest_item
 
 def init(data):
+    mysnake = next(x for x in data['snakes'] if x['name'] == snake_name)
+
     grid = [[0 for col in xrange(data['height'])] for row in xrange(data['width'])]
     for snek in data['snakes']:
-        if snek['id']== ID:
-            mysnake = snek
+#        if snek['id']== ID:
+#            mysnake = snek
         for coord in snek['coords']:
             grid[coord[0]][coord[1]] = SNAKE
 
@@ -89,7 +93,11 @@ def index():
 def start():
     data = bottle.request.json
 
-    # TODO: Do things with data
+
+  print data
+  print '=================='
+  # TODO: Do things with data
+  #ID = data[id]
 
     return {
     "color": "#ff59eb",
