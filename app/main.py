@@ -13,8 +13,8 @@ GOLD = 4
 SAFTEY = 5
 def goals(data):
     result = data['food']
-    if data['mode'] == 'advanced':
-        result.extend(data['gold'])
+#    if data['mode'] == 'advanced':
+#        result.extend(data['gold'])
     return result
 
 def direction(from_cell, to_cell):
@@ -56,11 +56,11 @@ def init(data):
         for coord in snek['coords']:
             grid[coord[0]][coord[1]] = SNAKE
 
-    if data['mode'] == 'advanced':
-        for wall in data['walls']:
-            grid[wall[0]][wall[1]] = WALL
-        for g in data['gold']:
-            grid[g[0]][g[1]] = GOLD
+#    if data['mode'] == 'advanced':
+#        for wall in data['walls']:
+#            grid[wall[0]][wall[1]] = WALL
+#        for g in data['gold']:
+#            grid[g[0]][g[1]] = GOLD
 
     for f in data['food']:
         grid[f[0]][f[1]] = FOOD
@@ -92,6 +92,8 @@ def start():
     # TODO: Do things with data
 
     return {
+        "name": "Craigs Snake",
+        "color": "2222ff",
         'taunt': 'battlesnake-python!'
     }
 # DATA OBJECT
@@ -159,8 +161,8 @@ def move():
     path = None
     middle = [data['width'] / 2, data['height'] / 2]
     foods = sorted(data['food'], key = lambda p: distance(p,middle))
-    if data['mode'] == 'advanced':
-        foods = data['gold'] + foods
+#    if data['mode'] == 'advanced':
+#        foods = data['gold'] + foods
     for food in foods:
         #print food
         tentative_path = a_star(snek_head, food, grid, snek_coords)
