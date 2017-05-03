@@ -248,6 +248,7 @@ def move():
         assert path[0] == tuple(snek_head)
         assert len(path) > 1
 
+    print path
     return {
         'move': direction(path[0], path[1]),
         'taunt': 'TRAITOR!'
