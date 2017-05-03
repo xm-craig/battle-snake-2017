@@ -146,6 +146,8 @@ def start():
 @bottle.post('/move')
 def move():
     data = bottle.request.json
+    print data
+    print '##################'
     snek, grid = init(data)
 
     #foreach snake
@@ -212,15 +214,15 @@ def move():
         for coord in new_snek_coords:
             new_grid[coord[0]][coord[1]] = SNAKE
 
-        #printg(grid, 'orig')
-        #printg(new_grid, 'new')
+        printg(grid, 'orig')
+        printg(new_grid, 'new')
 
-        #print snek['coords'][-1]
+        print snek['coords'][-1]
         foodtotail = a_star(food,new_snek_coords[-1],new_grid, new_snek_coords)
         if foodtotail:
             path = tentative_path
             break
-        #print "no path to tail from food"
+        print "no path to tail from food"
 
 
 
@@ -249,6 +251,7 @@ def move():
         assert len(path) > 1
 
     print path
+    print '##################'
     return {
         'move': direction(path[0], path[1]),
         'taunt': 'TRAITOR!'
